@@ -1,0 +1,92 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 5
+
+
+int front=-1,rear=-1,QUE[size];
+
+
+void enque()
+{
+	int ele;
+	printf("enter the element");
+	scanf("%d",&ele);
+	if(rear==size-1)
+	printf("queue is full");
+else
+{
+	if(front==-1&&rear==-1)
+	{
+		front=0;
+		rear=0;
+	}
+	else
+	rear=rear+1;
+	QUE[rear]=ele;
+}
+}
+
+void dequeue()
+{
+	int ele;
+	if (front==-1&&rear==-1)
+	{
+	
+	printf("queue is empty");
+	
+	
+}
+	else
+	{
+		ele=QUE[front];
+		if(front==rear)
+		{
+			front=-1;
+			rear=-1;
+		}
+		else
+		front=front+1;	
+		printf("the deleteted element=%d",ele);
+	
+    }
+}
+
+
+void display()
+{
+	int i;
+	if (front==-1&&rear==-1)
+	printf("queue in empty");
+	else
+	for(i=front;i<=rear;i++)
+	printf("%d\t",QUE[i]);
+}
+int main()
+{
+    int choice;
+    do{
+    printf("\nTHE MAIN MENU\n");
+    printf("\n 1.enque\n");
+    printf("\n 2.deque\n");
+    printf("\n 3.display\n");
+    printf("\n 4.end\n");
+
+    printf("\n enter the choice:");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        case 1:enque();
+        break;
+        case 2:deque();
+        break;
+        case 3:display();
+        break;
+        case 4:exit(0);
+         
+        default:printf("\neter no between 1to4!!!");
+    }
+
+}
+while(choice>=1 && choice<=5);
+return 0;
+}
